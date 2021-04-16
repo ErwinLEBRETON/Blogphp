@@ -1,0 +1,9 @@
+{
+    "name": "m2web12020/blog",
+    "description": "Projet de micro CMS type blog pour le cours de PHP avec les masters",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
