@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Personne;
+use App\Repository\PersonneRepository;
 
 class LoginController
 {
@@ -19,7 +20,25 @@ class LoginController
             $p->setEmail($_POST["coIdentifiant"]);
             $p->setPassword($_POST["coMdp"]);
 
-            var_dump($p);
+            $pRepo = new PersonneRepository();
+            $pRepo->pLogin($p);
+
+            if (isset($_SESSION["role"]) && !is_null($_SESSION["role"])) {
+                if ($_SESSION["role"] === 1 || $_SESSION["role"] === 2) {
+                    // TODO : rediriger vers l'admin
+                    header('Location: ?page=home');
+                } elseif ($_SESSION["role"] === 3) {
+                    header('Location: ?page=home');
+                }
+            }
         }
+    }
+
+    public function deconnexion()
+    {
+       $pRepo = new PersonneRepository();
+       $pRepo->pLogout();
+
+       header('location: ?page=home');
     }
 }

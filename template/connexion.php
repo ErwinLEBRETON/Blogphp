@@ -10,6 +10,11 @@
 
 <body>
     <?php include "menu.php"; ?>
+
+    <?=
+        password_hash("admin", PASSWORD_DEFAULT);
+    ?>
+
     <h1>Connexion</h1>
 
     <form action="?page=login&action=connexion" method="post">

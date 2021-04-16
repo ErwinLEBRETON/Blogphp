@@ -8,6 +8,14 @@ class Personne
     public $username;
     public $email;
     public $password;
+    /**
+     * @var Role
+     * 
+     * Role 1 = Admin
+     * Role 2 = Editeur / Modérateur
+     * Role 3 = Utilisateur Lambda
+     * 
+     */
     public $role;
 
     /**

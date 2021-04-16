@@ -13,7 +13,16 @@
 <body>
     <?php include "menu.php"; ?>
 
-    <h1>Bienvenue sur la page d'accueil</h1>
+    <h1>
+        Bienvenue
+        <?php
+        if (isset($_SESSION["role"]) && !is_null($_SESSION["role"])) {
+            echo $_SESSION["username"];
+        } else {
+            echo "sur la page d'accueil";
+        }
+        ?>
+    </h1>
     <?php foreach ($articles as $article) { ?>
         <article>
             <h2><?= $article->getTitle() ?></h2>
